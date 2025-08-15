@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dapur - Pesanan Masuk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .order-card { 
+            margin-bottom: 1.5rem; 
+            border-left: 5px solid #dc3545; /* Garis merah penanda pesanan baru */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .order-card .card-header {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-danger">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 text-white">🔴 Pesanan Masuk</span>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div id="daftar-pesanan" class="row">
+            </div>
+    </div>
+
+    <script>
+        function tampilkanPesanan() {
+            const daftarPesananEl = document.getElementById('daftar-pesanan');
+            const pesananMasuk = JSON.parse(localStorage.getItem('pesananMasuk')) || [];
+
+            // Kosongkan tampilan agar tidak ada duplikat
+            daftarPesananEl.innerHTML = '';
+
+            if (pesananMasuk.length === 0) {
+                daftarPesananEl.innerHTML = '<div class="col-12"><p class="text-center text-muted mt-5">Belum ada pesanan yang masuk.</p></div>';
+                return;
+            }
+
+            // Urutkan pesanan dari yang paling baru
+            pesananMasuk.sort((a, b) => b.waktu - a.waktu);
+
+            // Tampilkan setiap pesanan sebagai kartu
+            pesananMasuk.forEach(pesanan => {
+                const col = document.createElement('div');
+                col.className = 'col-lg-4 col-md-6';
+                
+                let itemHTML = '';
+                pesanan.item.forEach(item => {
+                    itemHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">${item.nama} <span>Rp ${parseInt(item.harga).toLocaleString('id-ID')}</span></li>`;
+                });
+
+                col.innerHTML = `
+                    <div class="card order-card">
+                        <div class="card-header bg-white">
+                            <strong>Meja No: ${pesanan.meja}</strong>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                ${itemHTML}
+                            </ul>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <strong>Total: Rp ${pesanan.total}</strong>
+                            <button class="btn btn-success" onclick="selesaikanPesanan(${pesanan.waktu})">Selesai</button>
+                        </div>
+                    </div>
+                `;
+                daftarPesananEl.appendChild(col);
+            });
+        }
+
+        function selesaikanPesanan(waktuPesanan) {
+            let pesananMasuk = JSON.parse(localStorage.getItem('pesananMasuk')) || [];
+            // Buat array baru yang berisi semua pesanan KECUALI yang waktunya cocok
+            const pesananTerbaru = pesananMasuk.filter(p => p.waktu !== waktuPesanan);
+            // Simpan kembali array yang sudah diperbarui ke localStorage
+            localStorage.setItem('pesananMasuk', JSON.stringify(pesananTerbaru));
+            // Perbarui tampilan
+            tampilkanPesanan();
+        }
+
+        // Tampilkan pesanan saat halaman pertama kali dimuat
+        tampilkanPesanan();
+
+        // Terus periksa localStorage setiap 3 detik untuk update (simulasi real-time)
+        setInterval(tampilkanPesanan, 3000);
+
+    </script>
+</body>
+</html>

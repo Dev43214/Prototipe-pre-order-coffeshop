@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jagar Coffee - Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --primary-color: #A47551;
+        --secondary-color: #F9F5F0;
+        --dark-color: #4A3F35;
+        --text-color: #333;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+      }
+      .navbar {
+        background-color: var(--dark-color) !important;
+      }
+      .navbar-logo {
+        height: 40px;
+        mix-blend-mode: screen;
+      }
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .btn-primary:hover {
+        background-color: var(--dark-color);
+        border-color: var(--dark-color);
+      }
+      .category-header {
+        margin-top: 2.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #EAE0D5;
+        color: var(--dark-color);
+        font-weight: 700;
+      }
+      .card {
+        height: 100%;
+        border: 1px solid #EAE0D5;
+        border-radius: 15px;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(74, 63, 53, 0.1);
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+      }
+      .card-body .btn {
+        margin-top: auto;
+      }
+      .floating-cart-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 24px;
+        z-index: 1050;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+      @media (max-width: 576px) {
+        h2 {
+          font-size: 1.5rem;
+        }
+        h3.category-header {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="D:\tugas kp\gambar\logo jagar.png" alt="Jagar Coffee Logo" class="navbar-logo">Jagar Coffee & Eatry
+        </a>
+      </div>
+    </nav>
+
+    <div class="container mt-4 mb-5">
+      <h2>Pilih Menu Anda (Meja No: <span id="nomor-meja">__</span>)</h2>
+      
+      <h3 class="category-header mt-4">⭐ Best Seller</h3>
+      <div class="row mt-3">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Chicken Rice Bowl Sambal Matah</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Chicken Rice Bowl Sambal Matah" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Sanger coffee</h5><p class="card-text">Rp 18.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Sanger coffee" data-harga="18000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Kopi Jagar Edition's</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="2xKopi Jagar Edition's" data-harga="25000">Tambah</a></div></div></div>
+      </div>
+
+      <h3 class="category-header">🍴 Makanan</h3>
+      <h4 class="mt-4">Spesial Andaliman</h4>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasi Telur Andaliman</h5><p class="card-text">Rp 17.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasi Telur Andaliman" data-harga="17000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasi Ayam Andaliman</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasi Ayam Andaliman" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasgor Telur Andaliman</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasgor Telur Andaliman" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasgor Ayam Andaliman</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasgor Ayam Andaliman" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasgor Spesial Jagar</h5><p class="card-text">Rp 30.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasgor Spesial Jagar" data-harga="30000">Tambah</a></div></div></div>
+      </div>
+      <h4 class="mt-4">Noodles</h4>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Mihun Goreng Jagar</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Mihun Goreng Jagar" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Indomie Goreng</h5><p class="card-text">Rp 17.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Indomie Goreng" data-harga="17000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Indomie Kuah</h5><p class="card-text">Rp 17.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Indomie Kuah" data-harga="17000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Mie Curry Jagar</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Mie Curry Jagar" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Mie Kuning Jagar</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Mie Kuning Jagar" data-harga="20000">Tambah</a></div></div></div>
+      </div>
+      <h4 class="mt-4">Snack, Dessert & Pastry</h4>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Pisang Goreng</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Pisang Goreng" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Kentang Goreng</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Kentang Goreng" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Ubi Goreng</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Ubi Goreng" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Cheese Toast Bologhaise</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Cheese Toast Bologhaise" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Onion Ring</h5><p class="card-text">Rp 15.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Onion Ring" data-harga="15000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Churos</h5><p class="card-text">Rp 15.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Churos" data-harga="15000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Chicken Katsu</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Chicken Katsu" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Chicken Quesadilla</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Chicken Quesadilla" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Puding Oreo</h5><p class="card-text">Rp 10.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Puding Oreo" data-harga="10000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Puding Mango</h5><p class="card-text">Rp 10.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Puding Mango" data-harga="10000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Puding Strawberry</h5><p class="card-text">Rp 10.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Puding Strawberry" data-harga="10000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Roti Bakar Susu</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Roti Bakar Susu" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Cheese Garlic</h5><p class="card-text">Rp 13.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Cheese Garlic" data-harga="13000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Roti Kopi Butter</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Roti Kopi Butter" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Roti Kopi Coklat</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Roti Kopi Coklat" data-harga="12000">Tambah</a></div></div></div>
+      </div>
+      <h4 class="mt-4">Chicken Rice & Nasi Goreng</h4>
+       <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Chicken Black Paper</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Chicken Black Paper" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasi Ayam Sambal Jagar</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasi Ayam Sambal Jagar" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Chicken Rice Bowl Sambal Jagar</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Chicken Rice Bowl Sambal Jagar" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasi Goreng Teri Jagar</h5><p class="card-text">Rp 22.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasi Goreng Teri Jagar" data-harga="22000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Nasi Goreng Seafood</h5><p class="card-text">Rp 35.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Nasi Goreng Seafood" data-harga="35000">Tambah</a></div></div></div>
+       </div>
+
+      <h3 class="category-header">☕ Minuman</h3>
+      <h4 class="mt-4">Espresso Based</h4>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Espresso</h5><p class="card-text">Rp 12.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Espresso" data-harga="12000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Americano/Long Black</h5><p class="card-text">Rp 18.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Americano/Long Black" data-harga="18000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Cappuccino</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Cappuccino" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Coffee Latte</h5><p class="card-text">Rp 22.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Coffee Latte" data-harga="22000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Mocha Latte</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Mocha Latte" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Caramel Macchiato</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Caramel Macchiato" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Hazelnut Latte</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Hazelnut Latte" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Kopi Susu Gula Aren</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Kopi Susu Gula Aren" data-harga="25000">Tambah</a></div></div></div>
+      </div>
+      <h4 class="mt-4">Signature & Powder Latte</h4>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Kopi Aren Jagar</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Kopi Aren Jagar" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Kopi Cendol Jagar</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Kopi Cendol Jagar" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Coffee Beer</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Coffee Beer" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Avocado Salted Caramel</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Avocado Salted Caramel" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Matcha Latte</h5><p class="card-text">Rp 22.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Matcha Latte" data-harga="22000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Chocolate Latte</h5><p class="card-text">Rp 22.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Chocolate Latte" data-harga="22000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Strawberry latte</h5><p class="card-text">Rp 22.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Strawberry latte" data-harga="22000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Taro latte</h5><p class="card-text">Rp 22.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Taro latte" data-harga="22000">Tambah</a></div></div></div>
+      </div>
+      <h4 class="mt-4">Manual Brew & Special Tea</h4>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Iced Japanese</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Iced Japanese" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">V60</h5><p class="card-text">Rp 25.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="V60" data-harga="25000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Vietnam Drip</h5><p class="card-text">Rp 18.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Vietnam Drip" data-harga="18000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Tubruk</h5><p class="card-text">Rp 10.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Tubruk" data-harga="10000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Tubruk Susu</h5><p class="card-text">Rp 15.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Tubruk Susu" data-harga="15000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Sweet Tea</h5><p class="card-text">Rp 10.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Sweet Tea" data-harga="10000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Lemon Tea</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Lemon Tea" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Apple Tea</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Apple Tea" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Mango Tea</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Mango Tea" data-harga="20000">Tambah</a></div></div></div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-4"><div class="card h-100"><div class="card-body d-flex flex-column"><h5 class="card-title">Lychee Tea</h5><p class="card-text">Rp 20.000</p><a href="#" class="btn btn-primary mt-auto tambah-keranjang" data-nama="Lychee Tea" data-harga="20000">Tambah</a></div></div></div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary floating-cart-btn" data-bs-toggle="modal" data-bs-target="#keranjangModal"><i class="bi bi-cart4"></i><span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span></button>
+    <div class="modal fade" id="keranjangModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5">🛒 Keranjang Anda</h1><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><ul id="isi-keranjang" class="list-group list-group-flush"></ul><hr><strong class="text-end">Total: Rp <span id="total-harga">0</span></strong></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lanjut Belanja</button><button type="button" id="tombol-pesan" class="btn btn-success">Pesan Sekarang</button></div></div></div></div>
+    <div class="modal fade" id="konfirmasiModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5">✅ Pesanan Berhasil</h1><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body">Pesanan Anda telah berhasil dikirim ke dapur. Mohon tunggu sebentar.</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button></div></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", function() {
+        const nomorMejaEl = document.getElementById('nomor-meja');
+        const urlParams = new URLSearchParams(window.location.search);
+        const nomorMeja = urlParams.get('meja');
+        if (nomorMeja) {
+          nomorMejaEl.textContent = nomorMeja;
+        } else {
+          nomorMejaEl.textContent = "??";
+        }
+        let keranjang = []; 
+        const tombolTambah = document.querySelectorAll('.tambah-keranjang');
+        const isiKeranjangEl = document.getElementById('isi-keranjang');
+        const totalHargaEl = document.getElementById('total-harga');
+        const tombolPesan = document.getElementById('tombol-pesan');
+        const cartBadge = document.getElementById('cart-badge');
+        const modalKeranjang = new bootstrap.Modal(document.getElementById('keranjangModal'));
+        const modalKonfirmasi = new bootstrap.Modal(document.getElementById('konfirmasiModal'));
+
+        tombolTambah.forEach(tombol => {
+          tombol.addEventListener('click', function(event) {
+            event.preventDefault();
+            const nama = tombol.dataset.nama;
+            const harga = parseInt(tombol.dataset.harga);
+            keranjang.push({ nama, harga });
+            updateTampilanKeranjang();
+            const originalText = tombol.textContent;
+            tombol.innerHTML = 'Ditambahkan ✓';
+            tombol.classList.add('btn-success');
+            tombol.classList.remove('btn-primary');
+            setTimeout(() => {
+              tombol.innerHTML = 'Tambah';
+              tombol.classList.remove('btn-success');
+              tombol.classList.add('btn-primary');
+            }, 1500);
+          });
+        });
+
+        tombolPesan.addEventListener('click', function() {
+          if (keranjang.length === 0) {
+            alert('Keranjang Anda masih kosong!');
+            return;
+          }
+          const pesanan = { meja: nomorMeja, item: keranjang, total: totalHargaEl.textContent, waktu: new Date().getTime() };
+          const daftarPesanan = JSON.parse(localStorage.getItem('pesananMasuk')) || [];
+          daftarPesanan.push(pesanan);
+          localStorage.setItem('pesananMasuk', JSON.stringify(daftarPesanan));
+          modalKeranjang.hide();
+          modalKonfirmasi.show();
+          keranjang = [];
+          updateTampilanKeranjang();
+        });
+
+        function updateTampilanKeranjang() {
+          isiKeranjangEl.innerHTML = '';
+          let total = 0;
+          if (keranjang.length > 0) {
+            cartBadge.textContent = keranjang.length;
+            cartBadge.style.display = 'block';
+          } else {
+            cartBadge.style.display = 'none';
+          }
+          if (keranjang.length === 0) {
+            isiKeranjangEl.innerHTML = '<li class="list-group-item text-muted">Keranjang masih kosong.</li>';
+          } else {
+            keranjang.forEach(item => {
+              const li = document.createElement('li');
+              li.className = 'list-group-item';
+              li.textContent = `${item.nama} - Rp ${item.harga.toLocaleString('id-ID')}`;
+              isiKeranjangEl.appendChild(li);
+              total += item.harga;
+            });
+          }
+          totalHargaEl.textContent = total.toLocaleString('id-ID');
+        }
+      });
+    </script>
+  </body>
+</html>
